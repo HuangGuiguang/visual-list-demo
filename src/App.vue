@@ -2,7 +2,7 @@
     <div id="app">
         <nav>
             <router-link to="/">BaseVisualList</router-link> |
-            <!-- <router-link to="/highLevelVisualList">HighLevelVisualList</router-link> -->
+            <router-link to="/highLevelVisualList">HighLevelVisualList</router-link>
         </nav>
         <router-view />
     </div>
