@@ -4,7 +4,9 @@
         <div class="content" ref="content" :style="{ transform: `translate3d(0, ${currentOffset}px, 0)` }">
             <div v-for="item in visibleData" :key="item.id" :id="item.id" ref="items" class="list-item">
                 {{ item.value }}
+                <img :src="item.url" @load="updatePositions" />
             </div>
+
         </div>
     </div>
 </template>
@@ -52,7 +54,7 @@ export default {
     },
     created() {
         for (let i = 1; i <= 10000; i++) {
-            this.listData.push({ id: i, value: i + '字符内容'.repeat(Math.random() * 20) })
+            this.listData.push({ id: i, value: i + '字符内容'.repeat(Math.random() * 20), url: 'https://th.bing.com/th?u=https%3a%2f%2fth.bing.com%2fth%3fid%3dORMS.134b6f51000ec2aa66b3dc62cb309792%26pid%3dWdp&ehk=wqdvjD0ExLTidICzbTGgd844N62aZ1gRDMVk4idmJMw%3d&w=186&h=88&c=8&rs=2&o=6&pid=WP0' })
         }
         this.initPositions(this.listData, this.preItemSize)
     },
